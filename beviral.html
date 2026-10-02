@@ -1034,13 +1034,13 @@ function Phone({ item, play, live, frameSrc = "assets/images/beviral/iphone-fram
   return (
     <div style={{ position: "relative", width: "var(--phw)", aspectRatio: "2134 / 4300" }}>
       {/* video clipped inside the PNG display area */}
-      <div style={{ position: "absolute", left: "5.81%", top: "2.42%", width: "88.38%", height: "95.16%", overflow: "hidden", background: "#000", zIndex: 1 }}>
+      <div style={{ position: "absolute", left: "5.81%", top: "2.42%", width: "88.38%", height: "95.16%", overflow: "hidden", borderRadius: "10.5% / 5.2%", background: "#000", zIndex: 1 }}>
         {live && id ? (
           <iframe
             title={item.client}
             src={ttSrc(id, play)}
             allow="autoplay; encrypted-media; fullscreen"
-            style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)", width: "100%", height: "auto", aspectRatio: "9 / 16", border: 0, display: "block", background: "#000" }}
+            style={{ position: "absolute", left: "50%", top: 0, transform: "translateX(-50%)", width: "auto", height: "100%", aspectRatio: "9 / 16", border: 0, display: "block", background: "#000" }}
           />
         ) : (
           <div style={{
