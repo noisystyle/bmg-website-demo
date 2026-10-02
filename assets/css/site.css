@@ -189,7 +189,7 @@ body.showcase-lightbox-open { overflow: hidden; }
 .logo-grid > a:hover { transform: translateY(-4px); }
 .logo-grid img { width: 100%; max-width: 190px; max-height: 95px; object-fit: contain; filter: grayscale(1) contrast(1.05); }
 .logo-grid .logo-zest { max-width: 135px; max-height: 64px; }
-.logo-grid .logo-assouline { max-width: 180px; max-height: 46px; }
+.logo-grid .logo-aminta { max-width: 155px; max-height: 100px; }
 
 .beviral { min-height: 76svh; display: grid; grid-template-columns: minmax(240px, .65fr) minmax(430px, 1.35fr); grid-template-rows: auto 1fr; gap: clamp(70px, 11vw, 190px); padding: 66px var(--pad) 86px; color: #fff; background: var(--blue); }
 .beviral-top { grid-column: 1 / -1; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,.32); }
