@@ -9,6 +9,7 @@
   --sans: "Bricolage Grotesque", Arial, sans-serif;
   --serif: "Instrument Serif", Georgia, serif;
   --mono: "JetBrains Mono", monospace;
+  --paper-grain: url("../images/ui/paper-grain.svg");
 }
 
 * { box-sizing: border-box; }
@@ -245,6 +246,18 @@ body.showcase-lightbox-open { overflow: hidden; }
 .reveal { opacity: 0; transform: translateY(42px); transition: opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 :focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+
+/* Una grana leggera restituisce agli sfondi panna un aspetto più materico. */
+body,
+.hero,
+.sector-strip,
+.work,
+.clients,
+.service-panel--paper {
+  background-image: var(--paper-grain);
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
 
 @media (min-width: 901px) {
   /* Desktop: una scala più editoriale e contenuti leggibili entro il viewport. */
