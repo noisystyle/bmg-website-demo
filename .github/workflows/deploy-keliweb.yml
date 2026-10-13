@@ -1,0 +1,46 @@
+name: Pubblica sito su Keliweb
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-bmg-website
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Carica i file aggiornati
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Scarica il repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Installa git-ftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq git-ftp
+
+      - name: Pubblica il sito principale
+        env:
+          FTP_HOST: ftp.bemarketinggroup.it
+          FTP_USERNAME: ${{ secrets.KELIWEB_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.KELIWEB_FTP_PASSWORD }}
+          REMOTE_ROOT: ${{ vars.KELIWEB_WEB_ROOT }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$FTP_USERNAME" ] || [ -z "$FTP_PASSWORD" ]; then
+            echo "Configura i segreti KELIWEB_FTP_USERNAME e KELIWEB_FTP_PASSWORD." >&2
+            exit 1
+          fi
+
+          REMOTE_ROOT="${REMOTE_ROOT:-/}"
+          git ftp push --auto-init --force \
+            --user "$FTP_USERNAME" \
+            --passwd "$FTP_PASSWORD" \
+            "ftpes://$FTP_HOST$REMOTE_ROOT"
