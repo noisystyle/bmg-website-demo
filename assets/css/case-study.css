@@ -147,8 +147,9 @@ button { color: inherit; font: inherit; }
 .next-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .next-link { display: inline-flex; align-items: center; gap: 12px; padding-bottom: 5px; border-bottom: 1px solid currentColor; font-size: clamp(18px, 1.7vw, 28px); }
 .portfolio-link { font-size: 14px; }
-.case-footer { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 34px var(--pad); color: #9d958c; background: var(--project-dark); }
+.case-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 30px; padding: 34px var(--pad); color: #9d958c; background: var(--project-dark); }
 .case-footer strong { color: #fff; font-weight: 500; }
+.case-footer .mono { flex: 1 1 560px; line-height: 1.65; text-align: center; }
 
 .lightbox { position: fixed; z-index: 500; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; color: #fff; background: rgba(12,10,8,.94); opacity: 0; }
 .lightbox.is-open { display: flex; }
@@ -241,6 +242,7 @@ button { color: inherit; font: inherit; }
   .case-next h2 { margin: 10vh 0; font-size: 14.5vw; }
   .next-bottom { align-items: flex-start; flex-direction: column; }
   .case-footer { align-items: flex-start; flex-direction: column; }
+  .case-footer .mono { flex-basis: auto; text-align: left; }
   .lightbox-prev { left: 12px; }
   .lightbox-next { right: 12px; }
 }

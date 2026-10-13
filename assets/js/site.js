@@ -290,45 +290,4 @@
     }, { passive: true });
   }
 
-  const contactForm = document.querySelector("[data-contact-form]");
-  const formStatus = document.querySelector("[data-form-status]");
-
-  if (contactForm && formStatus) {
-    contactForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      const submitButton = contactForm.querySelector("button[type='submit']");
-      const formData = new FormData(contactForm);
-      const payload = {
-        name: String(formData.get("name") || "").trim(),
-        email: String(formData.get("email") || "").trim(),
-        service: String(formData.get("service") || "Primo confronto").trim(),
-        message: String(formData.get("message") || "").trim(),
-        metadata: {
-          page: window.location.href,
-          form: "bmg_contact",
-        },
-      };
-
-      submitButton.disabled = true;
-      formStatus.textContent = "Invio in corso…";
-
-      try {
-        const response = await fetch("https://bmg-hub.vercel.app/api/leads", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-
-        if (!response.ok) throw new Error("Lead endpoint unavailable");
-
-        contactForm.reset();
-        formStatus.textContent = "Richiesta inviata. Ti risponderemo appena possibile.";
-      } catch (error) {
-        formStatus.innerHTML = "Non siamo riusciti a inviare la richiesta. Puoi scriverci a <a href='mailto:info@bemarketinggroup.it'>info@bemarketinggroup.it</a>.";
-      } finally {
-        submitButton.disabled = false;
-      }
-    });
-  }
 })();

@@ -1,3 +1,12 @@
 .DS_Store
 ._*
 *.log
+
+# SMTP credentials are stored outside the public site.
+private/
+bmg-mail.php
+.env
+.env.*
+
+bmg-smtp-password.txt
+bmg-turnstile-secret.txt

@@ -1,0 +1,8 @@
+.gitignore
+.git-ftp-ignore
+.github/*
+.DS_Store
+README.md
+docs/*
+tests/*
+private/*
