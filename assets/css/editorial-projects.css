@@ -1,0 +1,134 @@
+/* Client pages for the local editorial preview. */
+.editorial-case main { padding-top: 100px; }
+.case-heading { padding-block: 36px 42px; text-align: center; }
+.case-breadcrumb { display: flex; justify-content: center; gap: 12px; margin-bottom: 31px; font-size: 9px; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
+.case-heading h1 { font: 400 clamp(23px, 2.1vw, 32px)/1.4 var(--serif); letter-spacing: .15em; text-transform: uppercase; }
+.case-location { margin-top: 14px; font-size: 10px; letter-spacing: .09em; color: var(--muted); }
+.case-location span { padding-inline: 9px; }
+.case-media-nav { display: flex; justify-content: center; gap: 26px; margin-top: 24px; }
+.case-media-nav a { padding-block: 9px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid var(--rule); }
+.case-media-nav a:hover { border-color: var(--ink); }
+.case-cover { display: grid; gap: 24px; align-items: start; }
+.case-cover--wide { max-width: min(1040px, calc(62svh * 1.4995314)); }
+.case-cover--pair { grid-template-columns: 1fr 1fr; max-width: min(900px, calc(62svh * 1.3333333 + 24px)); }
+.case-photograph { min-width: 0; }
+.case-photo-link { display: block; cursor: zoom-in; }
+.case-photo-link img { display: block; width: 100%; height: auto; }
+.case-summary { max-width: 1000px; display: grid; grid-template-columns: 260px 1fr; gap: 100px; margin-block: 100px 108px; }
+.case-client-logo { display: block; width: 160px; height: 90px; object-fit: contain; object-position: left center; filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply; margin-bottom: 36px; }
+.case-client-logo--grand-hotel-la-favorita { width: 108px; height: 93px; }
+.case-client-logo--zest-restaurant { width: 120px; height: 60px; }
+.case-facts dl, .case-facts dd { margin: 0; }
+.case-facts dl > div + div { margin-top: 26px; }
+.case-facts dt { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+.case-facts dd { font-size: 12px; line-height: 1.9; }
+.case-facts ul { list-style: none; padding: 0; margin: 0; }
+.case-story h2 { font: 400 clamp(27px, 2.6vw, 35px)/1.25 var(--serif); letter-spacing: -.015em; margin-bottom: 26px; }
+.case-story p { font-size: 14px; line-height: 1.95; max-width: 585px; }
+.case-story p + p { margin-top: 18px; }
+.case-photo-essay { max-width: 1100px; }
+.case-gallery-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-top: 1px solid var(--rule); padding-top: 16px; margin-bottom: 56px; }
+.case-gallery-heading h2, .case-gallery-heading p { font: 400 9px/1.7 var(--sans); letter-spacing: .11em; text-transform: uppercase; }
+.case-gallery-heading p { color: var(--muted); text-align: right; }
+.case-films { max-width: 1100px; margin-block: 0 100px; scroll-margin-top: 30px; }
+.case-photo-essay { scroll-margin-top: 30px; }
+.case-film-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 72px; max-width: 850px; margin-inline: auto; }
+.case-film-intro { max-width: 320px; }
+.case-film-intro h3 { font: 400 clamp(32px, 3.1vw, 43px)/1.15 var(--serif); letter-spacing: -.02em; margin-bottom: 25px; }
+.case-film-intro > p:last-child { max-width: 270px; font-size: 13px; line-height: 1.9; color: var(--muted); }
+.case-film { width: 100%; max-width: min(340px, calc(65svh * .5625)); justify-self: end; }
+.case-film-player { position: relative; background: #252722; }
+.case-film video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: contain; }
+.case-film .case-film-play { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; border-radius: 0; color: white; background: linear-gradient(transparent 60%, #0005); cursor: pointer; }
+.case-film .case-film-play:hover { background: linear-gradient(#0001, #0001 60%, #0006); }
+.case-film-play-icon { display: grid; place-items: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; padding-left: 3px; border: 1px solid #fff9; border-radius: 50%; font: 400 29px/1 var(--sans); background: #0001; }
+.case-film-play-label { position: absolute; left: 0; right: 0; bottom: 25px; font: 400 9px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .15em; }
+.case-film-play:focus-visible, .case-film video:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+.case-film-error { margin-top: 15px; font-size: 12px; line-height: 1.7; }
+.case-film-error a { text-decoration: underline; }
+.case-photo-row { display: grid; align-items: start; gap: 32px; margin-inline: auto; }
+.case-photo-row + .case-photo-row { margin-top: 76px; }
+.case-photo-row--pair { grid-template-columns: 1fr 1fr; max-width: 900px; }
+.case-photo-row--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.case-photo-row--wide { max-width: 1040px; }
+.case-photo-row--single { width: 42%; max-width: 430px; }
+.case-pagination { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 40px; max-width: 1100px; margin-top: 100px; padding-block: 35px; border-block: 1px solid var(--rule); }
+.case-pagination a { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+.case-pagination span, .case-pagination-all { font-size: 10px; letter-spacing: .06em; }
+.case-pagination span { color: var(--muted); }
+.case-pagination strong { font: 400 21px/1.4 var(--serif); }
+.case-pagination .case-pagination-next { align-items: flex-end; text-align: right; }
+.case-conversation { padding-block: 88px 0; text-align: center; }
+.case-conversation h2 { font: 400 32px/1.3 var(--serif); margin-bottom: 26px; }
+.editorial-case .footer { margin-top: 88px; }
+
+/* A native dialog keeps keyboard focus inside the full-size photograph. */
+.case-lightbox { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; color: var(--ink); background: var(--paper); }
+.case-lightbox::backdrop { background: var(--paper); }
+.case-lightbox-shell { min-height: 100%; display: flex; flex-direction: column; padding: 18px 30px 24px; }
+.case-lightbox-bar { display: flex; justify-content: flex-end; align-items: center; min-height: 44px; font-size: 11px; letter-spacing: .08em; }
+.case-lightbox button { border: 0; padding: 8px 12px; min-width: 44px; min-height: 44px; background: transparent; color: var(--ink); }
+.case-lightbox button:hover { background: #292a2609; }
+.case-lightbox button span { margin-left: 12px; font-size: 22px; vertical-align: middle; }
+.case-lightbox-view { flex: 1; display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 20px; padding-top: 16px; }
+.case-lightbox-view > button { font-size: 25px; }
+.case-lightbox figure { min-width: 0; text-align: center; }
+.case-lightbox img { width: auto; max-width: 100%; height: auto; max-height: calc(100svh - 155px); object-fit: contain; margin-inline: auto; }
+.case-lightbox [data-case-error] { font-size: 12px; }
+.case-lightbox [data-case-error] a { text-decoration: underline; }
+
+@media (max-width: 1000px) {
+  .case-summary { grid-template-columns: 210px minmax(0, 1fr); gap: 50px; }
+  .case-photo-row { gap: 24px; }
+  .case-pagination { gap: 24px; }
+}
+@media (max-width: 700px) {
+  .editorial-case main { padding-top: 80px; }
+  .case-heading { padding-block: 25px 30px; }
+  .case-breadcrumb { margin-bottom: 23px; font-size: 8px; }
+  .case-heading h1 { font-size: 23px; letter-spacing: .09em; max-width: 400px; margin-inline: auto; }
+  .case-location { font-size: 9px; margin-top: 12px; }
+  .case-cover { max-width: none; gap: 16px; }
+  .case-summary { display: flex; flex-direction: column-reverse; gap: 32px; margin-block: 48px 60px; }
+  .case-story h2 { font-size: 29px; margin-bottom: 21px; }
+  .case-story p { font-size: 13px; line-height: 1.85; }
+  .case-facts { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 30px; align-items: start; border-top: 1px solid var(--rule); padding-top: 28px; }
+  .case-client-logo { width: 110px; height: 80px; margin: 0; }
+  .case-client-logo--grand-hotel-la-favorita { width: 86px; height: 74px; }
+  .case-client-logo--zest-restaurant { width: 100px; height: 54px; }
+  .case-facts dd { font-size: 11px; }
+  .case-gallery-heading { margin-bottom: 30px; gap: 16px; }
+  .case-gallery-heading h2, .case-gallery-heading p { font-size: 8px; }
+  .case-films { margin-bottom: 60px; scroll-margin-top: 20px; }
+  .case-photo-essay { scroll-margin-top: 20px; }
+  .case-film-layout { grid-template-columns: 1fr; gap: 32px; }
+  .case-film-intro { max-width: 350px; }
+  .case-film-intro h3 { font-size: 32px; margin-bottom: 18px; }
+  .case-film-intro > p:last-child { max-width: 310px; }
+  .case-film { width: 100%; max-width: 320px; justify-self: center; }
+  .case-photo-row--pair, .case-photo-row--trio { grid-template-columns: 1fr; gap: 38px; }
+  .case-photo-row .case-photograph:not(.case-photograph--landscape) { width: 82%; max-width: 360px; }
+  .case-photo-row .case-photograph:nth-child(even) { justify-self: end; }
+  .case-photo-row + .case-photo-row { margin-top: 42px; }
+  .case-photo-row--single { width: 100%; }
+  .case-photo-row--single .case-photograph { justify-self: center; }
+  .case-pagination { grid-template-columns: 1fr 1fr; gap: 28px 20px; margin-top: 60px; padding-block: 27px; }
+  .case-pagination strong { font-size: 18px; }
+  .case-pagination span { font-size: 9px; }
+  .case-pagination .case-pagination-all { grid-row: 2; grid-column: 1 / -1; align-items: center; }
+  .case-conversation { padding-top: 54px; }
+  .case-conversation h2 { font-size: 28px; margin-bottom: 21px; }
+  .editorial-case .footer { margin-top: 58px; }
+  .case-lightbox-shell { padding: 12px 14px 20px; }
+  .case-lightbox-view { grid-template-columns: 1fr 1fr; gap: 10px; align-content: center; }
+  .case-lightbox-view figure { grid-column: 1 / -1; grid-row: 1; }
+  .case-lightbox-view > button { justify-self: center; }
+  .case-lightbox img { max-height: calc(100svh - 220px); }
+}
+
+.case-story h3 { font: 400 10px/1.6 var(--sans); letter-spacing: .12em; text-transform: uppercase; margin-top: 30px; margin-bottom: 12px; }
+.case-story .case-service-link { margin-top: 25px; }
+@media (max-width: 700px) {
+  .case-story p { font-size: 14px; }
+  .case-story h3 { margin-top: 26px; }
+}

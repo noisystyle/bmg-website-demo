@@ -1,7 +1,6 @@
 Options -Indexes -MultiViews
 DirectoryIndex index.html index.php
 
-# Keep the deployment marker inaccessible from the web.
 <Files ".git-ftp.log">
     Require all denied
 </Files>
@@ -10,15 +9,20 @@ RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://bemarketinggroup.it%{REQUEST_URI} [R=301,L]
 
-# Redirect only explicit browser requests, never internal rewrites.
+RewriteRule ^editorial-preview\.html$ / [R=301,L,NC]
+RewriteRule ^editorial-projects/(.*)$ /progetti/$1 [R=301,L,NE]
+RewriteRule ^editorial-journal/(.*)$ /journal/$1 [R=301,L,NE]
+RewriteRule ^editorial-information/(.*)$ /informazioni/$1 [R=301,L,NE]
+RewriteRule ^projects/(.*)\.html$ /progetti/$1/ [R=301,L,NE]
+RewriteRule ^projects/(.*)$ /progetti/$1/ [R=301,L,NE]
+
 RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
-RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 
 RewriteCond %{THE_REQUEST} \s/+[^?\s]+\.html(?:[?\s]) [NC]
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
-# Serve existing HTML pages at extensionless URLs.
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
