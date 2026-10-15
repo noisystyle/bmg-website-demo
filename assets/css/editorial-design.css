@@ -16,8 +16,6 @@ button, input, select, textarea { font-family: var(--sans); }
 :where(section[id], div[id]) { scroll-margin-top: 24px; }
 .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: .13em; }
 .text-link { min-height: 44px; display: inline-flex; align-items: center; gap: 24px; font-size: 12px; }
-.text-link span { transition: transform .25s ease; }
-.text-link:hover span { transform: translate(3px, -3px); }
 
 /* The desktop navigation is centered on the viewport, independent of the logo. */
 .site-header .masthead { width: calc(100% - var(--page-gutter) * 2); max-width: none; height: 100px; min-height: 100px; gap: 22px; margin-inline: auto; }
