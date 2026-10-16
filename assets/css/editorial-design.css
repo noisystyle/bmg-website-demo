@@ -2,29 +2,31 @@
 :root {
   --serif: 'Bodoni Moda', Didot, 'Times New Roman', serif;
   --sans: 'DM Sans', Helvetica, Arial, sans-serif;
-  --ink: #282a24;
-  --muted: #60635a;
+  --ink: #242720;
+  --muted: #51554c;
   --paper: #f3f0e7;
   --rule: #cfcec5;
   --page-gutter: clamp(24px, 4.2vw, 80px);
+  --editorial-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  --editorial-column-gap: clamp(40px, 7vw, 112px);
+  --heading-label-offset: 42px;
 }
 body { font-family: var(--sans); font-size: 16px; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, .footer-signature { font-optical-sizing: auto; }
 button, input, select, textarea { font-family: var(--sans); }
 .page-width { width: calc(100% - var(--page-gutter) * 2); max-width: 1440px; }
 :where(a, button, summary, input, select, textarea):focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
 :where(section[id], div[id]) { scroll-margin-top: 24px; }
-.eyebrow { font-size: 10px; font-weight: 500; letter-spacing: .13em; }
-.text-link { min-height: 44px; display: inline-flex; align-items: center; gap: 24px; font-size: 12px; }
+.eyebrow { font-size: 11px; line-height: 1.6; font-weight: 500; letter-spacing: .11em; }
+.text-link { min-height: 44px; display: inline-flex; align-items: center; gap: 24px; font-size: 14px; }
 
 /* The desktop navigation is centered on the viewport, independent of the logo. */
 .site-header .masthead { width: calc(100% - var(--page-gutter) * 2); max-width: none; height: 100px; min-height: 100px; gap: 22px; margin-inline: auto; }
 .site-header .brand { width: 72px; }
 .site-header .masthead nav { left: 50%; transform: translateX(-50%); gap: clamp(22px, 2.3vw, 40px); white-space: nowrap; }
-.site-header .masthead nav a { position: relative; display: inline-flex; align-items: center; min-height: 44px; font-size: 10px; letter-spacing: .13em; }
+.site-header .masthead nav a { position: relative; display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: .1em; }
 .masthead nav a::after { content: ''; position: absolute; height: 1px; bottom: 7px; left: 0; width: 100%; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
 .masthead nav a:hover::after, .masthead nav a[aria-current]::after { transform: scaleX(1); }
-.brand-name { font-size: 9px; letter-spacing: .12em; }
+.brand-name { font-size: 10px; letter-spacing: .12em; }
 .menu-toggle { display: none; }
 .mobile-menu { color: var(--ink); background: var(--paper); border: 0; margin: 0; padding: 30px var(--page-gutter); width: 100%; height: 100dvh; max-width: none; max-height: none; }
 .mobile-menu::backdrop { background: var(--paper); }
@@ -42,24 +44,25 @@ button, input, select, textarea { font-family: var(--sans); }
 .hero-message { position: absolute; z-index: 2; inset: auto 0 150px; color: #fff; pointer-events: none; }
 .hero-message .eyebrow { color: inherit; margin-bottom: 24px; }
 .hero-message h1 { font: 400 clamp(60px, 6.8vw, 104px)/1.04 var(--serif); letter-spacing: -.045em; max-width: 1000px; text-wrap: balance; }
-.hero-message > p:last-child { font-size: 13px; line-height: 1.8; max-width: 355px; margin-top: 30px; }
+.hero-message > p:last-child { font-size: 16px; line-height: 1.75; max-width: 440px; margin-top: 30px; }
 .hero-bottom { z-index: 3; }
 .hero-arrow { z-index: 3; }
 .hero-caption { font-size: 11px; }
-.introduction { padding-block: 120px 130px; gap: 10%; align-items: end; }
-.introduction h2 { font: 400 clamp(46px, 5vw, 72px)/1.09 var(--serif); letter-spacing: -.04em; }
-.introduction .eyebrow { margin-bottom: 30px; }
-.introduction-deck { max-width: 430px; padding-bottom: 5px; }
-.introduction-deck > p { font-size: 17px; line-height: 1.85; }
+.introduction { display: grid; grid-template-columns: var(--editorial-columns); column-gap: var(--editorial-column-gap); align-items: start; padding-block: 96px 108px; }
+.introduction > *, .work-heading > * { min-width: 0; }
+.introduction h2 { font: 400 clamp(40px, 4.4vw, 64px)/1.14 var(--serif); letter-spacing: -.025em; }
+.introduction .eyebrow { margin-bottom: 24px; }
+.introduction-deck { width: 100%; max-width: 52ch; padding-top: var(--heading-label-offset); padding-bottom: 0; font-size: 18px; line-height: 1.75; }
+.introduction-deck > p { font-size: inherit; line-height: inherit; }
 .introduction-deck .text-link { margin-top: 30px; }
-.work-heading { display: flex; justify-content: space-between; align-items: flex-end; text-align: left; margin-bottom: 52px; padding-top: 30px; border-top: 1px solid var(--rule); }
-.work-heading h2 { font: 400 clamp(40px, 4.2vw, 62px)/1.12 var(--serif); text-transform: none; letter-spacing: -.035em; }
+.work-heading { display: grid; grid-template-columns: var(--editorial-columns); column-gap: var(--editorial-column-gap); align-items: start; text-align: left; margin-bottom: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.work-heading h2 { font: 400 clamp(40px, 4.4vw, 64px)/1.14 var(--serif); text-transform: none; letter-spacing: -.025em; padding-left: 0; }
 .work-heading { padding-bottom: 0; }
-.work-heading .eyebrow { margin-bottom: 22px; }
-.work-heading > p { font-size: 13px; line-height: 1.85; max-width: 280px; margin-left: 40px; }
+.work-heading .eyebrow { margin-bottom: 24px; }
+.work-heading > p { width: 100%; max-width: 52ch; padding-top: var(--heading-label-offset); margin: 0; font-size: 18px; line-height: 1.75; }
 .project-caption h3 { font: 400 clamp(23px, 2vw, 31px)/1.2 var(--serif); letter-spacing: -.025em; text-transform: none; }
-.project-description { font-size: 13px; line-height: 1.85; max-width: 500px; }
-.project-category { font-size: 9px; letter-spacing: .09em; }
+.project-description { font-size: 16px; line-height: 1.75; letter-spacing: 0; max-width: 52ch; }
+.project-category { font-size: 11px; letter-spacing: .08em; }
 .project-image { overflow: hidden; }
 .project-image img { transition: transform .8s cubic-bezier(.2,.65,.3,1); }
 @media (hover: hover) { .project-image:hover img { transform: scale(1.025); } }
@@ -67,23 +70,25 @@ button, input, select, textarea { font-family: var(--sans); }
 .editorial-home .selected-work { margin-bottom: 120px; }
 .visual-banner::after { background: #131b1480; }
 .visual-banner h2 { font-size: clamp(48px, 5.4vw, 82px); }
+.visual-banner .text-link { font-size: 14px; }
 .visual-banner-copy { padding-block: 80px; }
 .visual-banner--evening { height: min(56vw, 650px); }
 .studio-story { max-width: 1260px; grid-template-columns: .85fr 1fr; gap: 14%; padding-block: 130px; }
 .studio-story-image { width: 100%; max-width: 390px; justify-self: start; }
 .studio-story-copy { max-width: 500px; }
 .studio-story h2 { font-size: clamp(42px, 4.1vw, 60px); line-height: 1.1; letter-spacing: -.035em; }
-.studio-story-copy > p:not(.eyebrow) { font-size: 15px; line-height: 1.9; }
+.studio-story-copy > p:not(.eyebrow) { font-size: 17px; line-height: 1.75; }
 .hospitality-note { max-width: 1260px; display: grid; grid-template-columns: .85fr 1fr; gap: 14%; border-top: 1px solid var(--rule); padding-block: 35px 90px; }
 .hospitality-note h3 { font: 400 30px/1.25 var(--serif); letter-spacing: -.025em; }
-.hospitality-note p { font-size: 14px; max-width: 510px; line-height: 1.9; }
+.hospitality-note p { font-size: 17px; max-width: 52ch; line-height: 1.75; }
 
 /* Services open like short editorial chapters, with native keyboard interaction. */
 .expertise-section { padding-block: 100px 110px; }
 .expertise-inner { max-width: 1260px; }
-.expertise-heading { max-width: none; display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 10%; margin-bottom: 65px; }
+.expertise-heading { max-width: none; display: grid; grid-template-columns: var(--editorial-columns); align-items: start; column-gap: var(--editorial-column-gap); margin-bottom: 65px; }
 .expertise-heading h2 { font-size: clamp(42px, 4.2vw, 62px); margin-bottom: 0; line-height: 1.1; letter-spacing: -.035em; }
-.expertise-heading > p:last-child { font-size: 15px; max-width: 450px; }
+.expertise-heading .eyebrow { margin-bottom: 24px; }
+.expertise-heading > p:last-child { padding-top: var(--heading-label-offset); font-size: 18px; line-height: 1.75; max-width: 52ch; }
 .expertise-layout { grid-template-columns: .8fr 1.2fr; gap: 13%; align-items: start; }
 .expertise-image { margin: 0; width: 100%; max-width: 365px; justify-self: start; }
 .expertise-areas { display: block; border-top: 1px solid #b6bcae; }
@@ -94,35 +99,39 @@ button, input, select, textarea { font-family: var(--sans); }
 .service-chapter summary svg { flex-shrink: 0; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1; }
 .service-chapter[open] .service-plus { display: none; }
 .service-chapter .service-copy { padding: 0 35px 30px 0; max-width: 520px; }
-.service-chapter p { font-size: 14px; color: var(--ink); line-height: 1.9; }
-.service-chapter .service-scope { margin-top: 18px; font-size: 10px; line-height: 1.8; color: #555a50; }
+.service-chapter p { font-size: 17px; color: var(--ink); line-height: 1.75; }
+.service-chapter .service-scope { margin-top: 18px; font-size: 12px; line-height: 1.8; color: var(--muted); }
 .expertise-contact { margin-top: 30px; }
 .editorial-home .agency-method { padding-block: 110px; max-width: 1260px; }
 .method-introduction h2 { font-size: clamp(42px, 4.2vw, 60px); }
+.method-introduction > p:last-child { font-size: 17px; line-height: 1.75; max-width: 45ch; }
 .method-path h3 { font-size: 32px; }
-.method-path p { font-size: 15px; }
+.method-path p { font-size: 17px; line-height: 1.75; }
+.method-invitation .text-link { font-size: 14px; }
 .editorial-home .client-section { padding-block: 55px 90px; }
 .client-section h2 { font-size: 13px; letter-spacing: .2em; }
 .home-surface--contact { padding-block: 90px 105px; }
 .contact-heading h2 { font-size: clamp(44px, 4.6vw, 64px); line-height: 1.1; letter-spacing: -.035em; }
-.contact-heading > p { font-size: 15px; }
+.contact-heading > p { font-size: 17px; line-height: 1.75; max-width: 50ch; }
 .contact-form :is(input, select, textarea) { font-size: 16px; min-height: 48px; border-radius: 0; }
-.contact-form .field-label { font-size: 11px; }
-.form-bottom button { min-height: 50px; padding: 14px 24px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); font-size: 12px; }
+.contact-form .field-label { font-size: 12px; }
+.form-bottom button { min-height: 50px; padding: 14px 24px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); font-size: 14px; }
 .form-bottom button:hover { background: #454a3d; }
-.form-bottom small { font-size: 11px; }
+.form-bottom small { font-size: 12px; }
+.form-status { font-size: 16px; line-height: 1.65; }
 
 /* Project pages preserve each photograph's proportions. */
 .case-heading { padding-block: 48px 55px; }
 .case-heading h1 { font-size: clamp(46px, 6.2vw, 86px); line-height: 1.08; letter-spacing: -.04em; text-transform: none; max-width: 1050px; margin-inline: auto; text-wrap: balance; }
-.case-breadcrumb { font-size: 10px; margin-bottom: 33px; }
-.case-location { font-size: 11px; margin-top: 25px; }
+.case-breadcrumb { font-size: 12px; margin-bottom: 33px; }
+.case-location { font-size: 13px; margin-top: 25px; }
 .case-cover--wide { max-width: 1200px; }
 .case-cover--pair { max-width: min(960px, calc(76svh * 1.3333333 + 24px)); }
 .case-summary { max-width: 1120px; grid-template-columns: 1fr 2fr; gap: 12%; margin-block: 110px 120px; }
 .case-story h2 { font-size: clamp(34px, 3.5vw, 48px); line-height: 1.15; letter-spacing: -.035em; }
-.case-story p { font-size: 16px; line-height: 1.9; max-width: 640px; }
-.case-facts dd { font-size: 13px; }
+.case-story p { font-size: 17px; line-height: 1.8; max-width: 60ch; }
+.case-facts dd { font-size: 14px; }
+.case-film-intro > p:last-child { font-size: 17px; line-height: 1.75; }
 .case-photo-essay, .case-films { max-width: 1260px; }
 .case-gallery-heading h2 { font: 400 29px/1.2 var(--serif); letter-spacing: -.025em; text-transform: none; }
 .case-gallery-heading { align-items: center; margin-bottom: 55px; }
@@ -143,30 +152,38 @@ button, input, select, textarea { font-family: var(--sans); }
 .journal-section-heading h2 { font-size: clamp(32px, 3.4vw, 48px); }
 .journal-index-heading { padding-block: 65px 85px; }
 .journal-index-heading h1 { font-size: clamp(80px, 9vw, 140px); }
+.journal-index-heading > p:last-child { font-size: 17px; line-height: 1.75; }
 .journal-archive-grid { max-width: 950px; gap: 10%; }
 .journal-archive-grid .journal-card-image { max-width: none; }
 .journal-archive-grid .journal-card h3 { font-size: 31px; }
 .journal-story-heading h1 { font-size: clamp(40px, 5.3vw, 76px); line-height: 1.09; letter-spacing: -.035em; }
 .journal-story-heading { max-width: 1040px; padding-block: 40px 65px; }
 .journal-deck { font-family: var(--sans); font-size: 17px; line-height: 1.8; max-width: 620px; }
-.journal-story-text p { font-size: 16px; }
+.journal-story-text p { font-size: 17px; line-height: 1.8; }
 .journal-story-text .journal-lead { font-size: 19px; }
 .journal-story-text h2 { font-size: 38px; }
-.journal-story-notes p { font-size: 11px; }
+.journal-story-notes p { font-size: 12px; }
+.journal-excerpt { font-size: 16px; line-height: 1.75; }
+.journal-meta, .journal-date { font-size: 12px; line-height: 1.6; }
+.journal-story-aside > p:not(.eyebrow) { font-size: 14px; }
+.journal-home .journal-card h3 { font-size: 16px; line-height: 1.5; }
+.journal-home .journal-excerpt { font-size: 16px; line-height: 1.65; }
+.journal-home .journal-meta { font-size: 12px; line-height: 1.6; }
+.journal-read, .journal-back, .journal-archive-link { font-size: 13px; }
 
 /* A typographic colophon shared across every editorial page. */
 .footer.page-width { max-width: none; width: 100%; background: #282c25; color: #f3f0e7; margin-bottom: 0; padding: 55px max(var(--page-gutter), calc((100vw - 1440px) / 2)) 28px; border: 0; }
 .footer-top { display: grid; grid-template-columns: auto 1fr auto auto; gap: 35px; align-items: center; border: 0; padding: 0; }
 .footer-top .brand img { filter: brightness(0) invert(1); }
-.footer-top p, .footer-top > a { font-size: 11px; line-height: 1.8; color: inherit; }
+.footer-top p, .footer-top > a { font-size: 13px; line-height: 1.8; color: inherit; }
 .footer .footer-top .footer-email { justify-self: start; font-size: 14px; margin-left: 20px; border-bottom: 1px solid #abb09e; padding-block: 10px; }
 .footer-directory { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: end; margin-block: 75px 65px; }
 .footer-signature { font: 400 clamp(34px, 4vw, 58px)/1.1 var(--serif); letter-spacing: -.035em; }
 .footer-navigation { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 25px; padding: 0; margin: 0; color: inherit; }
-.footer-navigation a { font-size: 11px; color: inherit; line-height: 1.8; }
+.footer-navigation a { font-size: 13px; color: inherit; line-height: 1.8; }
 .footer a:hover { opacity: .7; }
 .footer-legal { border-top: 1px solid #ffffff30; padding-top: 24px; color: #c9ccbf; font-size: 10px; }
-.footer-legal p { max-width: 1000px; font-size: 10px; line-height: 1.8; }
+.footer-legal p { max-width: 1000px; font-size: 12px; line-height: 1.8; }
 .preview-media { padding-block: 20px; font-size: 11px; }
 
 @media (max-width: 1270px) { .brand-name { display: none; } }
@@ -202,18 +219,18 @@ button, input, select, textarea { font-family: var(--sans); }
   .hero-message { bottom: 165px; }
   .hero-message h1 { font-size: clamp(45px, 11.6vw, 72px); line-height: 1.06; }
   .hero-message .eyebrow { font-size: 9px; margin-bottom: 22px; }
-  .hero-message > p:last-child { font-size: 12px; line-height: 1.8; max-width: 270px; margin-top: 24px; }
+  .hero-message > p:last-child { font-size: 14px; line-height: 1.75; max-width: 310px; margin-top: 24px; }
   .hero-arrow { top: auto; bottom: 85px; width: 44px; height: 44px; }
   .hero-arrow--prev { left: var(--page-gutter); }
   .hero-arrow--next { right: var(--page-gutter); }
   .hero-bottom { bottom: 22px; }
-  .introduction { padding-block: 65px 80px; gap: 28px; }
+  .introduction { grid-template-columns: 1fr; padding-block: 64px 72px; gap: 28px; }
   .introduction h2 { font-size: clamp(39px, 9.5vw, 58px); }
-  .introduction-deck > p { font-size: 15px; }
+  .introduction-deck { margin-top: 0; padding-top: 0; font-size: 17px; }
   .introduction .eyebrow { margin-bottom: 24px; }
   .work-heading { display: block; margin-bottom: 35px; padding-top: 25px; }
   .work-heading h2 { font-size: 40px; }
-  .work-heading > p { margin: 22px 0 0; max-width: 330px; }
+  .work-heading > p { margin: 24px 0 0; padding-top: 0; font-size: 17px; max-width: 52ch; }
   .project-caption h3 { font-size: 26px; }
   .project-row + .project-row { margin-top: 48px; }
   .editorial-home .selected-work { margin-bottom: 70px; }
@@ -228,7 +245,7 @@ button, input, select, textarea { font-family: var(--sans); }
   .expertise-section { padding-block: 60px; }
   .expertise-heading { display: block; margin-bottom: 35px; }
   .expertise-heading h2 { font-size: 40px; }
-  .expertise-heading > p:last-child { margin-top: 25px; font-size: 14px; }
+  .expertise-heading > p:last-child { margin-top: 25px; padding-top: 0; font-size: 17px; }
   .expertise-layout { display: grid; grid-template-columns: 1fr; gap: 38px; }
   .expertise-image { width: 66%; max-width: 300px; margin: 0 0 0 auto; }
   .service-chapter summary { padding-block: 23px; }
@@ -237,7 +254,7 @@ button, input, select, textarea { font-family: var(--sans); }
   .editorial-home .agency-method { padding-block: 65px; }
   .method-introduction h2 { font-size: 40px; }
   .method-path h3 { font-size: 29px; }
-  .method-path p { font-size: 14px; }
+  .method-path p { font-size: 17px; }
   .editorial-home .client-section { padding-block: 40px 55px; }
   .home-surface--contact { padding-block: 55px 65px; }
   .contact-heading h2 { font-size: 41px; }
@@ -252,10 +269,10 @@ button, input, select, textarea { font-family: var(--sans); }
   .case-heading { padding-block: 33px 35px; }
   .case-heading h1 { font-size: clamp(40px, 10.5vw, 60px); }
   .case-breadcrumb { margin-bottom: 25px; }
-  .case-location { font-size: 10px; margin-top: 22px; }
+  .case-location { font-size: 12px; margin-top: 22px; }
   .case-summary { margin-block: 55px 65px; gap: 35px; }
   .case-story h2 { font-size: 35px; }
-  .case-story p { font-size: 15px; }
+  .case-story p { font-size: 17px; }
   .case-gallery-heading h2 { font-size: 25px; }
   .case-gallery-heading p { display: none; }
   .case-gallery-heading { margin-bottom: 33px; }
@@ -269,11 +286,13 @@ button, input, select, textarea { font-family: var(--sans); }
   .journal-section-heading h2 { font-size: 31px; }
   .journal-story-heading { padding-block: 30px 40px; }
   .journal-story-heading h1 { font-size: 40px; }
-  .journal-deck { font-size: 15px; }
+  .journal-deck { font-size: 17px; }
   .journal-story-text .journal-lead { font-size: 18px; }
-  .journal-story-text p { font-size: 15px; }
+  .journal-story-text p { font-size: 17px; }
   .journal-story-text h2 { font-size: 32px; }
   .journal-archive-grid { gap: 40px; }
 }
 @media (max-width: 370px) { :root { --page-gutter: 20px; } .hero-message h1 { font-size: 42px; } .footer-signature { font-size: 32px; } }
+/* Keep Bodoni's finer strokes visible; font shorthands above otherwise reset this axis. */
+body:is(.editorial-home, .editorial-case, .editorial-journal, .editorial-privacy) :is(h1, h2, h3, .footer-signature) { font-weight: 450; font-optical-sizing: none; font-variation-settings: 'opsz' 14; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
