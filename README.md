@@ -120,3 +120,13 @@ Configurare una sola volta in **Settings → Secrets and variables → Actions**
 - variabile facoltativa `KELIWEB_WEB_ROOT` se l’account FTP non è confinato direttamente a `public_html`
 
 Il deploy usa `git-ftp` su FTPES cifrato: dopo il primo avvio trasferisce soltanto i file cambiati e rimuove dal server quelli eliminati dal repository. Le cartelle private, la documentazione, i test e i file Git non vengono caricati.
+
+### 16 ottobre 2026 — Identità degli articoli Journal
+
+Gli articoli già online di Artema e Zest mostrano il marchio del ristorante
+sopra il titolo e una chiusura sobria di Be Marketing Group con link alla
+homepage. Logo Artema dal sito ufficiale Vetera/Artema, asset originale locale;
+logo Zest già presente. Aggiornati solo i due HTML, CSS Journal e asset Artema.
+Verifica locale del layout desktop, logo corretto, link e focus da tastiera;
+la pubblicazione avviene con il workflow Keliweb esistente.
+Le nuove bozze generate nell'Hub restano private e non sono incluse nel deploy.

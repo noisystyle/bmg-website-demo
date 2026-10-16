@@ -129,3 +129,15 @@
   .journal-home .journal-card h3 { font-size: 15px; }
   .journal-home .journal-excerpt { font-size: 14px; }
 }
+
+/* Article identity and discreet studio closing. */
+.journal-client-brand { display:flex; justify-content:center; margin:0 auto 28px; }
+.journal-client-brand img { display:block; width:auto; height:auto; max-width:170px; max-height:100px; object-fit:contain; }
+.editorial-journal .journal-brand-ending { max-width:670px; margin-block:0 70px; }
+.journal-bmg-cta { border-top:1px solid var(--rule); padding-top:26px; font-size:16px; line-height:1.75; }
+.journal-bmg-cta p { margin:0 0 12px; }
+.journal-bmg-cta .journal-bmg-name { font-size:11px; letter-spacing:.09em; text-transform:uppercase; }
+.journal-bmg-cta a { display:inline-block; padding:8px 0; min-height:44px; border-bottom:1px solid currentColor; text-decoration:none; }
+.journal-bmg-cta a:hover { opacity:.7; }
+.journal-bmg-cta a:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+@media(max-width:700px) { .journal-client-brand img { max-width:150px; max-height:90px; } .journal-brand-ending { margin-bottom:48px; } }
