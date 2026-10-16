@@ -27,7 +27,6 @@
   const next = hero.querySelector('[data-hero-next]');
   const dotsGroup = hero.querySelector('[data-hero-dots]');
   const dots = [...hero.querySelectorAll('[data-hero-dot]')];
-  const toggle = hero.querySelector('[data-hero-toggle]');
   const caption = hero.querySelector('[data-hero-caption]');
   const announcement = hero.querySelector('[data-hero-announcement]');
   const preview = document.querySelector('[data-preview-only]');
@@ -42,10 +41,6 @@
 
   function paintControls() {
     hero.dataset.mode = mode;
-    toggle.dataset.paused = String(paused);
-    toggle.setAttribute('aria-label', mode === 'video'
-      ? paused ? 'Riproduci il video' : 'Metti in pausa il video'
-      : paused ? 'Riprendi lo scorrimento' : 'Metti in pausa lo scorrimento');
     caption.textContent = mode === 'video' ? 'Be Marketing Group — Film' : slides[current].dataset.title;
     previous.hidden = next.hidden = dotsGroup.hidden = mode === 'video';
     dots.forEach((dot, index) => {
@@ -162,17 +157,14 @@
   previous.addEventListener('click', () => showSlide(current - 1, -1));
   next.addEventListener('click', () => showSlide(current + 1, 1));
   dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index, index > current ? 1 : -1)));
-  toggle.addEventListener('click', () => { paused = !paused; syncPlayback(); });
   hero.addEventListener('keydown', event => {
     if (mode !== 'photos' || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
     event.preventDefault();
     const direction = event.key === 'ArrowRight' ? 1 : -1;
     showSlide(current + direction, direction);
   });
-  // Keep autoplay paused while keyboard users operate the controls, unless they choose Play.
-  hero.addEventListener('focusin', event => {
-    if (event.target !== toggle) { paused = true; syncPlayback(); }
-  });
+  // Keep autoplay paused while keyboard users operate the remaining controls.
+  hero.addEventListener('focusin', () => { paused = true; syncPlayback(); });
   stage.addEventListener('pointerdown', event => {
     if (event.button !== 0) return;
     pointerStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
@@ -190,7 +182,6 @@
   stage.addEventListener('pointercancel', () => { pointerStart = undefined; });
   hero.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') block('hover', true); });
   hero.addEventListener('pointerleave', () => block('hover', false));
-  toggle.addEventListener('pointerenter', () => blockers.delete('hover'));
   document.addEventListener('visibilitychange', () => block('hidden-document', document.hidden));
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries => block('offscreen', !entries[0].isIntersecting), { threshold: .1 }).observe(hero);
